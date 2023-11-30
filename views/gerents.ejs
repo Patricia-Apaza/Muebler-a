@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>gerents</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/tw-elements.min.css" />
+  </head>
+  <body>
+
+<!-- component -->
+<div class="flex flex-col md:flex-row w-screen h-full px-14 py-7">
+
+    <!-- My Cart -->
+    <div class="w-full flex flex-col h-fit gap-4 p-4 ">
+        <p class="text-amber-500 text-xl font-extrabold">Pedido a Realizar</p>
+
+        <!-- Product -->
+        <div class="flex flex-col p-4 text-lg font-semibold shadow-md border rounded-sm">
+            <div class="flex flex-col md:flex-row gap-3 justify-between">
+                <!-- Product Information -->
+                <div class="flex flex-row gap-6 items-center">
+                    <div class="w-80 h-80">
+                        <img class="w-full h-full" src="/images/librero 1.png">
+                    </div>
+                    <div class="flex flex-col gap-1">
+                        <p class="text-lg text-gray-800 font-semibold">Librero Fufu DIBA Muebles</p>
+                        <div class="relative mb-4 flex flex-wrap items-stretch">
+                          <span
+                            class="flex items-center whitespace-nowrap rounded-l border border-r-0 border-solid border-neutral-300 px-3 py-[0.25rem] text-center text-base font-normal leading-[1.6] text-neutral-700 dark:border-neutral-600 dark:text-neutral-200 dark:placeholder:text-neutral-200"
+                            id="inputGroup-sizing-default"
+                            >Color</span
+                          >
+                          <input
+                            type="text"
+                            class="relative m-0 block w-[1px] min-w-0 flex-auto rounded-r border border-solid border-neutral-300 bg-transparent bg-clip-padding px-3 py-[0.25rem] text-base font-normal leading-[1.6] text-neutral-700 outline-none transition duration-200 ease-in-out focus:z-[3] focus:border-primary focus:text-neutral-700 focus:shadow-[inset_0_0_0_1px_rgb(59,113,202)] focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:focus:border-primary"
+                            aria-label="Sizing example input"
+                            aria-describedby="inputGroup-sizing-default" />
+                        </div>
+                        <div
+                          class="relative mb-3"
+                          data-te-datepicker-init
+                          data-te-input-wrapper-init>
+                          <input
+                            type="text"
+                            class="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:peer-focus:text-primary [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
+                            placeholder="Select a date" />
+                          <label
+                            for="floatingInput"
+                            class="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-primary"
+                            >Selecciona un día</label
+                          >
+                        </div>
+                    </div>
+                </div>
+                <!-- Price Information -->
+                <div class="self-center text-center">
+                    <p class="text-gray-600 font-normal text-xl ">Precio Regular 
+                        <span class="text-gray-500 ml-2 font-bold">S/ 1,450.00</span>
+                    </p>
+                    <p class="font-normal text-xl text-red-500 my-3">Precio Online
+                      <span class="text-red-500 ml-2 font-bold">S/ 979.99</span>
+                    </p>
+                </div>
+
+          <!-- HTML -->
+          <div class="flex items-center space-x-2 p-4">
+            <p class="text-gray-600">Cantidad:</p>
+            <button id="minus" type="button" class="w-8 h-8 bg-white border border-gray-300 rounded-full flex items-center justify-center text-gray-600">-</button>
+            <input id="quantity" type="number" value="1" min="1" max="100" class="w-16 h-8 bg-white border border-gray-300 rounded px-2 py-1 text-center text-gray-600">
+            <button id="plus" type="button" class="w-8 h-8 bg-white border border-gray-300 rounded-full flex items-center justify-center text-gray-600">+</button>
+          </div>
+
+          <!-- JavaScript -->
+          <script>
+            // Get the elements by id
+            const minus = document.getElementById("minus");
+            const plus = document.getElementById("plus");
+            const quantity = document.getElementById("quantity");
+
+            // Add click event listeners to the buttons
+            minus.addEventListener("click", function() {
+              // Decrease the value of the input by 1
+              quantity.value = parseInt(quantity.value) - 1;
+              // Validate that the value is not less than the minimum
+              if (quantity.value < quantity.min) {
+                quantity.value = quantity.min;
+              }
+            });
+
+            plus.addEventListener("click", function() {
+              // Increase the value of the input by 1
+              quantity.value = parseInt(quantity.value) + 1;
+              // Validate that the value is not greater than the maximum
+              if (quantity.value > quantity.max) {
+                quantity.value = quantity.max;
+              }
+            });
+          </script>
+
+        </div>
+    </div>
+
+    <!-- Purchase Resume -->
+    <div class="flex flex-col w-full md:w-2/3 h-fit gap-4 p-4">
+        <p class="text-amber-500 text-xl font-extrabold">Características</p>
+        <div class="flex flex-col p-4 gap-4 text-lg font-semibold shadow-md border rounded-sm">
+              <div class="relative mb-4 flex flex-wrap items-stretch">
+                <span
+                  class="flex items-center whitespace-nowrap rounded-l border border-r-0 border-solid border-neutral-300 px-3 py-[0.25rem] text-center text-base font-normal leading-[1.6] text-neutral-700 dark:border-neutral-600 dark:text-neutral-200 dark:placeholder:text-neutral-200"
+                  id="inputGroup-sizing-default"
+                  >Alto</span
+                >
+                <input
+                  type="text"
+                  class="relative m-0 block w-[1px] min-w-0 flex-auto rounded-r border border-solid border-neutral-300 bg-transparent bg-clip-padding px-3 py-[0.25rem] text-base font-normal leading-[1.6] text-neutral-700 outline-none transition duration-200 ease-in-out focus:z-[3] focus:border-primary focus:text-neutral-700 focus:shadow-[inset_0_0_0_1px_rgb(59,113,202)] focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:focus:border-primary"
+                  aria-label="Sizing example input"
+                  aria-describedby="inputGroup-sizing-default" />
+              </div>
+
+              <div class="relative mb-4 flex flex-wrap items-stretch">
+                <span
+                  class="flex items-center whitespace-nowrap rounded-l border border-r-0 border-solid border-neutral-300 px-3 py-[0.25rem] text-center text-base font-normal leading-[1.6] text-neutral-700 dark:border-neutral-600 dark:text-neutral-200 dark:placeholder:text-neutral-200"
+                  id="inputGroup-sizing-default"
+                  >Ancho</span
+                >
+                <input
+                  type="text"
+                  class="relative m-0 block w-[1px] min-w-0 flex-auto rounded-r border border-solid border-neutral-300 bg-transparent bg-clip-padding px-3 py-[0.25rem] text-base font-normal leading-[1.6] text-neutral-700 outline-none transition duration-200 ease-in-out focus:z-[3] focus:border-primary focus:text-neutral-700 focus:shadow-[inset_0_0_0_1px_rgb(59,113,202)] focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:focus:border-primary"
+                  aria-label="Sizing example input"
+                  aria-describedby="inputGroup-sizing-default" />
+              </div>
+            
+              <div class="relative mb-4 flex flex-wrap items-stretch">
+                <span
+                  class="flex items-center whitespace-nowrap rounded-l border border-r-0 border-solid border-neutral-300 px-3 py-[0.25rem] text-center text-base font-normal leading-[1.6] text-neutral-700 dark:border-neutral-600 dark:text-neutral-200 dark:placeholder:text-neutral-200"
+                  id="inputGroup-sizing-default"
+                  >Profundidad</span
+                >
+                <input
+                  type="text"
+                  class="relative m-0 block w-[1px] min-w-0 flex-auto rounded-r border border-solid border-neutral-300 bg-transparent bg-clip-padding px-3 py-[0.25rem] text-base font-normal leading-[1.6] text-neutral-700 outline-none transition duration-200 ease-in-out focus:z-[3] focus:border-primary focus:text-neutral-700 focus:shadow-[inset_0_0_0_1px_rgb(59,113,202)] focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:focus:border-primary"
+                  aria-label="Sizing example input"
+                  aria-describedby="inputGroup-sizing-default" />
+              </div>
+
+              <div class="relative mb-4 flex flex-wrap items-stretch">
+                <span
+                  class="flex items-center whitespace-nowrap rounded-l border border-r-0 border-solid border-neutral-300 px-3 py-[0.25rem] text-center text-base font-normal leading-[1.6] text-neutral-700 dark:border-neutral-600 dark:text-neutral-200 dark:placeholder:text-neutral-200"
+                  id="inputGroup-sizing-default"
+                  >Más detalles y/o sugerencias</span
+                >
+                <input
+                  type="text"
+                  class="relative m-0 block w-[1px] min-w-0 flex-auto rounded-r border border-solid border-neutral-300 bg-transparent bg-clip-padding px-3 py-[0.25rem] text-base font-normal leading-[1.6] text-neutral-700 outline-none transition duration-200 ease-in-out focus:z-[3] focus:border-primary focus:text-neutral-700 focus:shadow-[inset_0_0_0_1px_rgb(59,113,202)] focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:focus:border-primary"
+                  aria-label="Sizing example input"
+                  aria-describedby="inputGroup-sizing-default" />
+              </div>
+
+            <div class="flex gap-2">
+                <button class="transition-colors text-sm bg-amber-600 hover:bg-amber-700 p-2 rounded-sm w-full text-white text-hover shadow-md">
+                        HACER PEDIDO  
+                </button>
+                <button class="transition-colors text-sm bg-amber-600 hover:bg-amber-700 p-2 rounded-sm w-full text-white text-hover shadow-md">
+                        AGREGAR MÁS PRODUCTOS
+                </button>
+            </div>
+        </div>
+    </div>
+
+       <!-- inicio tarjetas -->
+
+    <div class="container mx-auto grid md:grid-cols-2 xl:grid-cols-4">
+    <div
+    class="block rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700">
+    <div class="relative overflow-hidden bg-cover bg-no-repeat">
+      <img
+        class="rounded-t-lg"
+        src="/images/comedor 2.png"
+        alt="" />
+    </div>
+    <div class="p-6">
+      <p class="text-base text-neutral-600 dark:text-neutral-200">
+        <p class="text-base text-neutral-600 dark:text-neutral-200">
+          <h1 class="text-left font-bold text-2xl">Juego de Comedor Milan Marrón - Juego de Comedor de 06 sillas Milan Beige</h1>
+          <p class="text-gray-600 font-normal text-xl my-3">Precio Regular 
+            <span class="text-gray-500 ml-2 line-through font-bold">S/ 3,678.40</span>
+          </p>
+          <h1 class="text-left font-bold text-red-600 text-xl">Precio Online S/ 1,599.00</h1>
+        <button
+          type="button"
+          class="float-right my-4 inline-block rounded-full bg-warning px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#e4a11b] transition duration-150 ease-in-out hover:bg-warning-600 hover:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.3),0_4px_18px_0_rgba(228,161,27,0.2)] focus:bg-warning-600 focus:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.3),0_4px_18px_0_rgba(228,161,27,0.2)] focus:outline-none focus:ring-0 active:bg-warning-700 active:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.3),0_4px_18px_0_rgba(228,161,27,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(228,161,27,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.2),0_4px_18px_0_rgba(228,161,27,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.2),0_4px_18px_0_rgba(228,161,27,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.2),0_4px_18px_0_rgba(228,161,27,0.1)]">
+          Agregar al pedido
+        </button>
+      </p>
+    </div>
+  </div>
+
+  <div
+  class="mx-2 block rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700">
+  <div class="relative overflow-hidden bg-cover bg-no-repeat">
+    <img
+      class="rounded-t-lg"
+      src="/images/estante 1.png"
+      alt="" />
+  </div>
+  <div class="p-6">
+    <p class="text-base text-neutral-600 dark:text-neutral-200">
+      <p class="text-base text-neutral-600 dark:text-neutral-200">
+        <h1 class="text-left font-bold text-2xl">Estante Luna MDP Beige 89.5x123.5cm Politorno</h1>
+        <p class="text-gray-600 font-normal text-xl my-3">Precio Regular 
+          <span class="text-gray-500 ml-2 line-through font-bold">S/ 299.00</span>
+        </p>
+        <h1 class="text-left font-bold text-red-600 text-xl">Precio Online S/ 207.20</h1>
+      <button
+        type="button"
+        class="float-right my-4 inline-block rounded-full bg-warning px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#e4a11b] transition duration-150 ease-in-out hover:bg-warning-600 hover:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.3),0_4px_18px_0_rgba(228,161,27,0.2)] focus:bg-warning-600 focus:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.3),0_4px_18px_0_rgba(228,161,27,0.2)] focus:outline-none focus:ring-0 active:bg-warning-700 active:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.3),0_4px_18px_0_rgba(228,161,27,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(228,161,27,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.2),0_4px_18px_0_rgba(228,161,27,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.2),0_4px_18px_0_rgba(228,161,27,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.2),0_4px_18px_0_rgba(228,161,27,0.1)]">
+        Agregar al pedido
+      </button>
+    </p>
+  </div>
+</div>
+
+<div
+  class="block rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700">
+  <div class="relative overflow-hidden bg-cover bg-no-repeat">
+    <img
+      class="rounded-t-lg"
+      src="/images/librero 2.png"
+      alt="" />
+  </div>
+  <div class="p-6">
+    <p class="text-base text-neutral-600 dark:text-neutral-200">
+      <p class="text-base text-neutral-600 dark:text-neutral-200">
+        <h1 class="text-left font-bold text-2xl">Librero Estante Organizador Juguetero Infantil Lucas Blanco Muebles Bonno</h1>
+        <p class="text-gray-600 font-normal text-xl my-3">Precio Regular 
+          <span class="text-gray-500 ml-2 line-through font-bold">S/ S/ 999.99</span>
+        </p>
+        <h1 class="text-left font-bold text-red-600 text-xl">Precio Online S/ 699.99</h1>
+      <button
+        type="button"
+        class="float-right my-4 inline-block rounded-full bg-warning px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#e4a11b] transition duration-150 ease-in-out hover:bg-warning-600 hover:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.3),0_4px_18px_0_rgba(228,161,27,0.2)] focus:bg-warning-600 focus:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.3),0_4px_18px_0_rgba(228,161,27,0.2)] focus:outline-none focus:ring-0 active:bg-warning-700 active:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.3),0_4px_18px_0_rgba(228,161,27,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(228,161,27,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.2),0_4px_18px_0_rgba(228,161,27,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.2),0_4px_18px_0_rgba(228,161,27,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.2),0_4px_18px_0_rgba(228,161,27,0.1)]">
+        Agregar al pedido
+      </button>
+    </p>
+  </div>
+</div>
+
+<div
+  class="mx-2 block rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700">
+  <div class="relative overflow-hidden bg-cover bg-no-repeat">
+    <img
+      class="rounded-t-lg"
+      src="/images/mesa comedor 1.png"
+      alt="" />
+  </div>
+  <div class="p-6">
+    <p class="text-base text-neutral-600 dark:text-neutral-200">
+      <p class="text-base text-neutral-600 dark:text-neutral-200">
+        <h1 class="text-left font-bold text-2xl">Mesa De Comedor Extendible Odense</h1>
+        <p class="text-gray-600 font-normal text-xl my-3">Precio Regular 
+          <span class="text-gray-500 ml-2 line-through font-bold">S/ 899.00</span>
+        </p>
+        <h1 class="text-left font-bold text-red-600 text-xl">Precio Online S/ 649.00</h1>
+      <button
+        type="button"
+        class="float-right my-4 inline-block rounded-full bg-warning px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#e4a11b] transition duration-150 ease-in-out hover:bg-warning-600 hover:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.3),0_4px_18px_0_rgba(228,161,27,0.2)] focus:bg-warning-600 focus:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.3),0_4px_18px_0_rgba(228,161,27,0.2)] focus:outline-none focus:ring-0 active:bg-warning-700 active:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.3),0_4px_18px_0_rgba(228,161,27,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(228,161,27,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.2),0_4px_18px_0_rgba(228,161,27,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.2),0_4px_18px_0_rgba(228,161,27,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.2),0_4px_18px_0_rgba(228,161,27,0.1)]">
+        Agregar al pedido
+      </button>
+    </p>
+  </div>
+</div>
+</div>
+</div>
+
+      <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/tw-elements.umd.min.js"></script>
+  </body>
+</html>

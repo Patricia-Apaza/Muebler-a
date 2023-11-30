@@ -30,6 +30,14 @@ router.get('/catalogue', function (req, res, next) {
   res.render('catalogue');
 });
 
+router.get('/gerents', function (req, res, next) {
+  res.render('gerents');
+});
+
+router.get('/managerer', function (req, res, next) {
+  res.render('managerer');
+});
+
 
 /* POST login page. */
 router.post('/dashboard', function (req, res, next) {
