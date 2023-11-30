@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>buys</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/tw-elements.min.css" />
+  </head>
+  <body>
+
+<!-- component -->
+<div class="flex flex-col md:flex-row w-screen h-full px-14 py-7">
+
+    <!-- My Cart -->
+    <div class="w-full flex flex-col h-fit gap-4 p-4 ">
+        <p class="text-amber-500 text-xl font-extrabold">Mi compra</p>
+
+        <!-- Product -->
+        <div class="flex flex-col p-4 text-lg font-semibold shadow-md border rounded-sm">
+            <div class="flex flex-col md:flex-row gap-3 justify-between">
+                <!-- Product Information -->
+                <div class="flex flex-row gap-6 items-center">
+                    <div class="w-80 h-80">
+                        <img class="w-full h-full" src="/images/cama.jpg">
+                    </div>
+                    <div class="flex flex-col gap-1">
+                        <p class="text-lg text-gray-800 font-semibold">Dormitorio DRIMER Orion 1.5 Plazas</p>
+                        <div class="relative mb-4 flex flex-wrap items-stretch">
+                          <span
+                            class="flex items-center whitespace-nowrap rounded-l border border-r-0 border-solid border-neutral-300 px-3 py-[0.25rem] text-center text-base font-normal leading-[1.6] text-neutral-700 dark:border-neutral-600 dark:text-neutral-200 dark:placeholder:text-neutral-200"
+                            id="inputGroup-sizing-default"
+                            >Color</span
+                          >
+                          <input
+                            type="text"
+                            class="relative m-0 block w-[1px] min-w-0 flex-auto rounded-r border border-solid border-neutral-300 bg-transparent bg-clip-padding px-3 py-[0.25rem] text-base font-normal leading-[1.6] text-neutral-700 outline-none transition duration-200 ease-in-out focus:z-[3] focus:border-primary focus:text-neutral-700 focus:shadow-[inset_0_0_0_1px_rgb(59,113,202)] focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:focus:border-primary"
+                            aria-label="Sizing example input"
+                            aria-describedby="inputGroup-sizing-default" />
+                        </div>
+                    </div>
+                </div>
+                <!-- Price Information -->
+                <div class="self-center text-center">
+                    <p class="text-gray-600 font-normal text-xl ">Precio Regular 
+                        <span class="text-gray-500 ml-2 line-through font-bold">S/1,179.00</span>
+                    </p>
+                    <p class="font-normal text-xl text-red-500 my-3">Precio Online
+                      <span class="text-red-500 ml-2 font-bold">S/949.00</span>
+                    </p>
+                </div>
+
+          <!-- HTML -->
+          <div class="flex items-center space-x-2 p-4">
+            <p class="text-gray-600">Cantidad:</p>
+            <button id="minus" type="button" class="w-8 h-8 bg-white border border-gray-300 rounded-full flex items-center justify-center text-gray-600">-</button>
+            <input id="quantity" type="number" value="1" min="1" max="100" class="w-16 h-8 bg-white border border-gray-300 rounded px-2 py-1 text-center text-gray-600">
+            <button id="plus" type="button" class="w-8 h-8 bg-white border border-gray-300 rounded-full flex items-center justify-center text-gray-600">+</button>
+          </div>
+
+          <!-- JavaScript -->
+          <script>
+            // Get the elements by id
+            const minus = document.getElementById("minus");
+            const plus = document.getElementById("plus");
+            const quantity = document.getElementById("quantity");
+
+            // Add click event listeners to the buttons
+            minus.addEventListener("click", function() {
+              // Decrease the value of the input by 1
+              quantity.value = parseInt(quantity.value) - 1;
+              // Validate that the value is not less than the minimum
+              if (quantity.value < quantity.min) {
+                quantity.value = quantity.min;
+              }
+            });
+
+            plus.addEventListener("click", function() {
+              // Increase the value of the input by 1
+              quantity.value = parseInt(quantity.value) + 1;
+              // Validate that the value is not greater than the maximum
+              if (quantity.value > quantity.max) {
+                quantity.value = quantity.max;
+              }
+            });
+          </script>
+
+        </div>
+    </div>
+
+    <!-- Purchase Resume -->
+    <div class="flex flex-col w-full md:w-2/3 h-fit gap-4 p-4">
+        <p class="text-amber-500 text-xl font-extrabold">Características</p>
+        <div class="flex flex-col p-4 gap-4 text-lg font-semibold shadow-md border rounded-sm">
+            <div class="flex flex-row justify-between">
+                <p class="text-gray-600">Alto</p>
+                <p class="text-end font-bold">54 cm</p>
+            </div>
+            <hr class="bg-gray-200 h-0.5">
+            <div class="flex flex-row justify-between">
+                <p class="text-gray-600">Ancho</p>
+                <div>
+                <p class="text-end font-bold">105 cm</p>
+                </div>
+            </div>
+            <hr class="bg-gray-200 h-0.5">
+            <div class="flex flex-row justify-between">
+                <p class="text-gray-600">Profundidad</p>
+                <a class="text-gray-600">190 cm</a>
+            </div>
+            <hr class="bg-gray-200 h-0.5">
+            <div class="flex flex-row justify-between">
+                <p class="text-gray-600">Garantía</p>
+                <div>
+                <p class="text-end font-bold">1 año para tarima y 1 año para cabecera</p>
+                </div>
+            </div>
+            <div class="flex gap-2">
+                <button class="transition-colors text-sm bg-amber-600 hover:bg-amber-700 p-2 rounded-sm w-full text-white text-hover shadow-md">
+                        AGREGAR A CARRITO  
+                </button>
+                <button class="transition-colors text-sm bg-amber-600 hover:bg-amber-700 p-2 rounded-sm w-full text-white text-hover shadow-md">
+                        AGREGAR MÁS PRODUCTOS
+                </button>
+            </div>
+        </div>
+    </div>
+
+       <!-- inicio tarjetas -->
+
+    <div class="container mx-auto grid md:grid-cols-2 xl:grid-cols-4">
+    <div
+    class="block rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700">
+    <div class="relative overflow-hidden bg-cover bg-no-repeat">
+      <img
+        class="rounded-t-lg"
+        src="/images/comedor 1.png"
+        alt="" />
+    </div>
+    <div class="p-6">
+      <p class="text-base text-neutral-600 dark:text-neutral-200">
+        <h1 class="text-left font-bold">Cama Matrimonial</h1>
+        <h1 class="text-left font-bold my-3">S/. 990.00       semanales</h1>
+        <h1 class="text-left font-bold">S/. 990.00       de contado</h1>
+        <h1 class="text-right font-bold my-5">Comprar ></h1>
+      </p>
+    </div>
+  </div>
+
+  <div
+  class="mx-2 block rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700">
+  <div class="relative overflow-hidden bg-cover bg-no-repeat">
+    <img
+      class="rounded-t-lg"
+      src="/images/estante 1.png"
+      alt="" />
+  </div>
+  <div class="p-6">
+    <p class="text-base text-neutral-600 dark:text-neutral-200">
+      <h1 class="text-left font-bold">Camas Modernas</h1>
+      <h1 class="text-left font-bold my-3">S/. 990.00       semanales</h1>
+      <h1 class="text-left font-bold">S/. 990.00       de contado</h1>
+      <h1 class="text-right font-bold my-5">Comprar ></h1>
+    </p>
+  </div>
+</div>
+
+<div
+  class="block rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700">
+  <div class="relative overflow-hidden bg-cover bg-no-repeat">
+    <img
+      class="rounded-t-lg"
+      src="/images/librero 1.png"
+      alt="" />
+  </div>
+  <div class="p-6">
+    <p class="text-base text-neutral-600 dark:text-neutral-200">
+      <h1 class="text-left font-bold">Sillones</h1>
+      <h1 class="text-left font-bold my-3">S/. 990.00       semanales</h1>
+      <h1 class="text-left font-bold">S/. 990.00       de contado</h1>
+      <h1 class="text-right font-bold my-5">Comprar ></h1>
+    </p>
+  </div>
+</div>
+
+<div
+  class="mx-2 block rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700">
+  <div class="relative overflow-hidden bg-cover bg-no-repeat">
+    <img
+      class="rounded-t-lg"
+      src="/images/mesa comedor 1.png"
+      alt="" />
+  </div>
+  <div class="p-6">
+    <p class="text-base text-neutral-600 dark:text-neutral-200">
+      <h1 class="text-left font-bold">Comedores</h1>
+      <h1 class="text-left font-bold my-3">S/. 990.00       semanales</h1>
+      <h1 class="text-left font-bold">S/. 990.00       de contado</h1>
+      <h1 class="text-right font-bold my-5">Comprar ></h1>
+    </p>
+  </div>
+</div>
+</div>
+</div>
+
+      <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/tw-elements.umd.min.js"></script>
+  </body>
+</html>

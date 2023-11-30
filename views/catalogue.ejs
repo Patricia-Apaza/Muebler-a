@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="en" class="antialiased">
+  <head>
+    <title>catalogue</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/tw-elements.min.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link rel="stylesheet" href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css">
+    <link href="https://unpkg.com/@tailwindcss/custom-forms/dist/custom-forms.min.css" rel="stylesheet">
+    <!--Replace with your tailwind.css once created-->
+    <style>
+        .max-h-64 {
+            max-height: 16rem;
+        }
+        /*Quick overrides of the form input as using the CDN version*/
+        .form-input,
+        .form-textarea,
+        .form-select,
+        .form-multiselect {
+            background-color: #edf2f7;
+        }
+    </style>
+  </head>
+<body class="bg-gray-100 text-gray-900 tracking-wider leading-normal">
+
+    <nav id="header" class="bg-white fixed w-full z-10 top-0 shadow">
+
+        <div class="w-full container mx-auto flex flex-wrap items-center justify-between my-4">
+
+            <div class="pl-4 md:pl-0">
+                <a class="flex items-center text-yellow-600 text-base xl:text-xl no-underline hover:no-underline font-extrabold font-sans" href="#">
+                    <svg class="fill-current h-6 inline-block text-yellow-600 mr-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                        <path d="M16 2h4v15a3 3 0 0 1-3 3H3a3 3 0 0 1-3-3V0h16v2zm0 2v13a1 1 0 0 0 1 1 1 1 0 0 0 1-1V4h-2zM2 2v15a1 1 0 0 0 1 1h11.17a2.98 2.98 0 0 1-.17-1V2H2zm2 8h8v2H4v-2zm0 4h8v2H4v-2zM4 4h8v4H4V4z"></path>
+                    </svg> Mueblería
+                </a>
+            </div>
+
+            <div class="pr-0 flex justify-end">
+
+                <div class="flex relative float-right">
+
+                    <div class="relative text-sm">
+
+                      <div class="mb-3">
+                        <div class="relative mb-4 flex w-full flex-wrap items-stretch">
+                          <input
+                            type="search"
+                            class="relative m-0 -mr-0.5 block min-w-0 flex-auto rounded-l border border-solid border-neutral-300 bg-transparent bg-clip-padding px-3 py-[0.25rem] text-base font-normal leading-[1.6] text-neutral-700 outline-none transition duration-200 ease-in-out focus:z-[3] focus:border-primary focus:text-neutral-700 focus:shadow-[inset_0_0_0_1px_rgb(59,113,202)] focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:focus:border-primary"
+                            placeholder="Buscar"
+                            aria-label="Search"
+                            aria-describedby="button-addon1" />
+
+                          <!--Search button-->
+                          <button
+                            class="relative z-[2] flex items-center rounded-r bg-yellow-600 px-6 py-2.5 text-xs font-medium uppercase leading-tight text-white shadow-md transition duration-150 ease-in-out hover:bg-yellow-600 hover:shadow-lg focus:bg-yellow-600 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-yellow-600 active:shadow-lg"
+                            type="button"
+                            id="button-addon1"
+                            data-te-ripple-init
+                            data-te-ripple-color="light">
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              viewBox="0 0 20 20"
+                              fill="currentColor"
+                              class="h-5 w-5">
+                              <path
+                                fill-rule="evenodd"
+                                d="M9 3.5a5.5 5.5 0 100 11 5.5 5.5 0 000-11zM2 9a7 7 0 1112.452 4.391l3.328 3.329a.75.75 0 11-1.06 1.06l-3.329-3.328A7 7 0 012 9z"
+                                clip-rule="evenodd" />
+                            </svg>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!--Container-->
+    <div class="container w-full flex flex-wrap mx-auto px-2 pt-8 lg:pt-16 mt-16">
+        <div class="w-full lg:w-1/5 px-6 text-xl text-gray-800 leading-normal">
+            <div class="block lg:hidden sticky inset-0">
+                <button id="menu-toggle" class="flex w-full justify-end px-3 py-3 bg-white lg:bg-transparent border rounded border-gray-600 hover:border-yellow-600 appearance-none focus:outline-none">
+                    <svg class="fill-current h-3 float-right" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"></path>
+                    </svg>
+                </button>
+            </div>
+            <div class="w-full sticky inset-0 hidden max-h-64 lg:h-auto overflow-x-hidden overflow-y-auto lg:overflow-y-hidden lg:block mt-0 my-2 lg:my-0 border border-gray-400 lg:border-transparent bg-white shadow lg:shadow-none lg:bg-transparent z-20" style="top:6em;" id="menu-content">
+                <ul class="list-reset py-2 md:py-0">
+                  <li class="py-1 md:my-2 hover:bg-yellow-100 lg:hover:bg-transparent border-l-4 border-transparent font-bold border-yellow-600">
+                      <a href="#section1" class="block pl-4 align-middle text-gray-700 no-underline hover:text-yellow-600">
+                          <span class="pb-1 md:pb-0 text-sm">SOFÁS Y SILLONES</span>
+                      </a>
+                      <!-- Agrega una lista anidada dentro del elemento <li> -->
+                      <ul class="list-none ml-6">
+                          <!-- Crea un elemento <li> para cada subsección y usa el atributo href para apuntar al id de la subsección -->
+                          <li class="py-1 md:my-2 hover:bg-yellow-100 lg:hover:bg-transparent border-l-4 border-transparent font-bold border-yellow-600">
+                              <a href="#subsection1" class="block pl-4 align-middle text-gray-700 no-underline hover:text-yellow-600">
+                                  <span class="pb-1 md:pb-0 text-sm">SOFÁS</span>
+                              </a>
+                          </li>
+                          <li class="py-1 md:my-2 hover:bg-yellow-100 lg:hover:bg-transparent border-l-4 border-transparent font-bold border-yellow-600">
+                              <a href="#subsection2" class="block pl-4 align-middle text-gray-700 no-underline hover:text-yellow-600">
+                                  <span class="pb-1 md:pb-0 text-sm">SILLONES</span>
+                              </a>
+                          </li>
+                      </ul>
+                  </li>
+
+                  <li class="py-1 md:my-2 hover:bg-yellow-100 lg:hover:bg-transparent border-l-4 border-transparent font-bold border-yellow-600">
+                      <a href="#section1" class="block pl-4 align-middle text-gray-700 no-underline hover:text-yellow-600">
+                          <span class="pb-1 md:pb-0 text-sm">MUEBLES DE COMEDOR</span>
+                      </a>
+                      <!-- Agrega una lista anidada dentro del elemento <li> -->
+                      <ul class="list-none ml-6">
+                          <!-- Crea un elemento <li> para cada subsección y usa el atributo href para apuntar al id de la subsección -->
+                          <li class="py-1 md:my-2 hover:bg-yellow-100 lg:hover:bg-transparent border-l-4 border-transparent font-bold border-yellow-600">
+                              <a href="#subsection1" class="block pl-4 align-middle text-gray-700 no-underline hover:text-yellow-600">
+                                  <span class="pb-1 md:pb-0 text-sm">JUEGOS DE COMEDOR</span>
+                              </a>
+                          </li>
+                          <li class="py-1 md:my-2 hover:bg-yellow-100 lg:hover:bg-transparent border-l-4 border-transparent font-bold border-yellow-600">
+                              <a href="#subsection2" class="block pl-4 align-middle text-gray-700 no-underline hover:text-yellow-600">
+                                  <span class="pb-1 md:pb-0 text-sm">MESAS DE COMEDOR</span>
+                              </a>
+                          </li>
+                      </ul>
+                  </li>
+
+                  <li class="py-1 md:my-2 hover:bg-yellow-100 lg:hover:bg-transparent border-l-4 border-transparent font-bold border-yellow-600">
+                      <a href="#section1" class="block pl-4 align-middle text-gray-700 no-underline hover:text-yellow-600">
+                          <span class="pb-1 md:pb-0 text-sm">MUEBLES PARA DORMITORIO</span>
+                      </a>
+                      <!-- Agrega una lista anidada dentro del elemento <li> -->
+                      <ul class="list-none ml-6">
+                          <!-- Crea un elemento <li> para cada subsección y usa el atributo href para apuntar al id de la subsección -->
+                          <li class="py-1 md:my-2 hover:bg-yellow-100 lg:hover:bg-transparent border-l-4 border-transparent font-bold border-yellow-600">
+                              <a href="#subsection1" class="block pl-4 align-middle text-gray-700 no-underline hover:text-yellow-600">
+                                  <span class="pb-1 md:pb-0 text-sm">JUEGO DE DORMITORIO</span>
+                              </a>
+                          </li>
+                          <li class="py-1 md:my-2 hover:bg-yellow-100 lg:hover:bg-transparent border-l-4 border-transparent font-bold border-yellow-600">
+                              <a href="#subsection2" class="block pl-4 align-middle text-gray-700 no-underline hover:text-yellow-600">
+                                  <span class="pb-1 md:pb-0 text-sm">VELADORES</span>
+                              </a>
+                          </li>
+                      </ul>
+                  </li>
+
+                  <li class="py-1 md:my-2 hover:bg-yellow-100 lg:hover:bg-transparent border-l-4 border-transparent font-bold border-yellow-600">
+                      <a href="#section1" class="block pl-4 align-middle text-gray-700 no-underline hover:text-yellow-600">
+                          <span class="pb-1 md:pb-0 text-sm">MUEBLES DE OFICINA</span>
+                      </a>
+                      <!-- Agrega una lista anidada dentro del elemento <li> -->
+                      <ul class="list-none ml-6">
+                          <!-- Crea un elemento <li> para cada subsección y usa el atributo href para apuntar al id de la subsección -->
+                          <li class="py-1 md:my-2 hover:bg-yellow-100 lg:hover:bg-transparent border-l-4 border-transparent font-bold border-yellow-600">
+                              <a href="#subsection1" class="block pl-4 align-middle text-gray-700 no-underline hover:text-yellow-600">
+                                  <span class="pb-1 md:pb-0 text-sm">LIBREROS</span>
+                              </a>
+                          </li>
+                          <li class="py-1 md:my-2 hover:bg-yellow-100 lg:hover:bg-transparent border-l-4 border-transparent font-bold border-yellow-600">
+                              <a href="#subsection2" class="block pl-4 align-middle text-gray-700 no-underline hover:text-yellow-600">
+                                  <span class="pb-1 md:pb-0 text-sm">ESTANTES</span>
+                              </a>
+                          </li>
+                      </ul>
+                  </li>
+                </ul>
+            </div>
+        </div>
+
+        <!--Section container-->
+        <section class="w-full lg:w-4/5">
+
+            <!--Title-->
+            <h1 class="flex items-center font-sans font-bold break-normal text-gray-700 px-2 text-xl mt-12 lg:mt-0 md:text-2xl">Categorías: Muebles</h1>
+
+            <!--divider-->
+            <hr class="bg-gray-300 my-12">
+
+            <!--Title-->
+            <h2 id="section1" class="font-sans font-bold break-normal text-gray-700 px-2 pb-8 text-xl">SOFÁS Y SILLONES</h2>
+            <h3 id="section1" class="font-sans font-bold break-normal text-gray-700 px-2 pb-8 text-xl">SOFÁS</h3>
+
+            <!--Card-->
+            <div class="p-8 mt-6 lg:mt-0 leading-normal rounded shadow bg-white">
+
+            <div class="container mx-auto grid md:grid-cols-1 xl:grid-cols-2">
+              <div
+                class="mx-2 block rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700">
+                <div class="relative overflow-hidden bg-cover bg-no-repeat">
+                  <img
+                    class="rounded-t-lg"
+                    src="/images/sofá 1.png"
+                    alt="" />
+                </div>
+                <div class="p-6">
+                  <p class="text-base text-neutral-600 dark:text-neutral-200">
+                    <h1 class="text-left font-bold text-2xl">Sofá Noelia 3 Cuerpos Acero</h1>
+                    <p class="text-gray-600 font-normal text-xl my-3">Precio Regular 
+                      <span class="text-gray-500 ml-2 line-through font-bold">S/1,179.00</span>
+                    </p>
+                    <h1 class="text-left font-bold text-red-600 text-xl">Precio Online S/ 1,099.00</h1>
+                    <button
+                      type="button"
+                      class="my-3 float-right inline-block rounded-full bg-warning px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#e4a11b] transition duration-150 ease-in-out hover:bg-warning-600 hover:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.3),0_4px_18px_0_rgba(228,161,27,0.2)] focus:bg-warning-600 focus:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.3),0_4px_18px_0_rgba(228,161,27,0.2)] focus:outline-none focus:ring-0 active:bg-warning-700 active:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.3),0_4px_18px_0_rgba(228,161,27,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(228,161,27,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.2),0_4px_18px_0_rgba(228,161,27,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.2),0_4px_18px_0_rgba(228,161,27,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.2),0_4px_18px_0_rgba(228,161,27,0.1)]">
+                      Comprar
+                    </button>
+                  </p>
+                </div>
+              </div>
+
+
+                <div
+                  class="block rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700">
+                  <div class="relative overflow-hidden bg-cover bg-no-repeat">
+                    <img
+                      class="rounded-t-lg"
+                      src="/images/sofá 2.png"
+                      alt="" />
+                  </div>
+                  <div class="p-6">
+                    <p class="text-base text-neutral-600 dark:text-neutral-200">
+                      <h1 class="text-left font-bold text-2xl">Sofa Living Furniture lake negro 3 cuerpos</h1>
+                      <p class="text-gray-600 font-normal text-xl my-3">Precio Regular 
+                        <span class="text-gray-500 ml-2 line-through font-bold">S/ 2,651.00</span>
+                      </p>
+                      <h1 class="text-left font-bold text-red-600 text-xl">Precio Online S/ 2,039.00</h1>
+                      <button
+                        type="button"
+                        class="my-3 float-right inline-block rounded-full bg-warning px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#e4a11b] transition duration-150 ease-in-out hover:bg-warning-600 hover:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.3),0_4px_18px_0_rgba(228,161,27,0.2)] focus:bg-warning-600 focus:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.3),0_4px_18px_0_rgba(228,161,27,0.2)] focus:outline-none focus:ring-0 active:bg-warning-700 active:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.3),0_4px_18px_0_rgba(228,161,27,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(228,161,27,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.2),0_4px_18px_0_rgba(228,161,27,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.2),0_4px_18px_0_rgba(228,161,27,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.2),0_4px_18px_0_rgba(228,161,27,0.1)]">
+                        Comprar
+                      </button>
+                    </p>
+                  </div>
+                </div> 
+            </div>
+            <!--/Card-->
+            <h3 id="section1" class="my-5 font-sans font-bold break-normal text-gray-700 px-2 pb-8 text-xl">SILLONES</h3>
+            <!--Card-->
+            <div class="p-8 mt-6 lg:mt-0 leading-normal rounded shadow bg-white">
+
+              <div class="container mx-auto grid md:grid-cols-1 xl:grid-cols-2">
+                <div
+                  class="mx-2 block rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700">
+                  <div class="relative overflow-hidden bg-cover bg-no-repeat">
+                    <img
+                      class="rounded-t-lg"
+                      src="/images/sillon 1.png"
+                      alt="" />
+                  </div>
+                  <div class="p-6">
+                    <p class="text-base text-neutral-600 dark:text-neutral-200">
+                      <h1 class="text-left font-bold text-2xl">Sillon Praga mas Bamqueta Baul Mallma Deco plomo</h1>
+                      <p class="text-gray-600 font-normal text-xl my-3">Precio Regular 
+                        <span class="text-gray-500 ml-2 line-through font-bold">S/ 1,199.00</span>
+                      </p>
+                      <h1 class="text-left font-bold text-red-600 text-xl">Precio Online S/ 899.00</h1>
+                      <button
+                        type="button"
+                        class="my-3 float-right inline-block rounded-full bg-warning px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#e4a11b] transition duration-150 ease-in-out hover:bg-warning-600 hover:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.3),0_4px_18px_0_rgba(228,161,27,0.2)] focus:bg-warning-600 focus:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.3),0_4px_18px_0_rgba(228,161,27,0.2)] focus:outline-none focus:ring-0 active:bg-warning-700 active:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.3),0_4px_18px_0_rgba(228,161,27,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(228,161,27,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.2),0_4px_18px_0_rgba(228,161,27,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.2),0_4px_18px_0_rgba(228,161,27,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.2),0_4px_18px_0_rgba(228,161,27,0.1)]">
+                        Comprar
+                      </button>
+                    </p>
+                  </div>
+                </div>
+  
+  
+                  <div
+                    class="block rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700">
+                    <div class="relative overflow-hidden bg-cover bg-no-repeat">
+                      <img
+                        class="rounded-t-lg"
+                        src="/images/sillon 2.png"
+                        alt="" />
+                    </div>
+                    <div class="p-6">
+                      <p class="text-base text-neutral-600 dark:text-neutral-200">
+                        <h1 class="text-left font-bold text-2xl">Sillon Polly Mavisac Color Beige - Ultra Cuero</h1>
+                        <p class="text-gray-600 font-normal text-xl my-3">Precio Regular 
+                          <span class="text-gray-500 ml-2 line-through font-bold">S/ 1,050.00</span>
+                        </p>
+                        <h1 class="text-left font-bold text-red-600 text-xl">Precio Online S/ 840.00</h1>
+                        <button
+                          type="button"
+                          class="my-3 float-right inline-block rounded-full bg-warning px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#e4a11b] transition duration-150 ease-in-out hover:bg-warning-600 hover:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.3),0_4px_18px_0_rgba(228,161,27,0.2)] focus:bg-warning-600 focus:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.3),0_4px_18px_0_rgba(228,161,27,0.2)] focus:outline-none focus:ring-0 active:bg-warning-700 active:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.3),0_4px_18px_0_rgba(228,161,27,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(228,161,27,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.2),0_4px_18px_0_rgba(228,161,27,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.2),0_4px_18px_0_rgba(228,161,27,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.2),0_4px_18px_0_rgba(228,161,27,0.1)]">
+                          Comprar
+                        </button>
+                      </p>
+                    </div>
+                  </div> 
+              </div>
+            <!--/Card-->
+
+
+
+
+
+
+
+
+            
+
+            <!--divider-->
+            <hr class="bg-gray-300 my-12">
+
+            <!--Title-->
+            <h2 id="section2" class="font-sans font-bold break-normal text-gray-700 px-2 pb-8 text-xl">MUEBLES DE COMEDOR</h2>
+            <h3 id="section2" class="font-sans font-bold break-normal text-gray-700 px-2 pb-8 text-xl">JUEGOS DE COMEDOR</h3>
+
+            <!--Card-->
+            <div class="p-8 mt-6 lg:mt-0 leading-normal rounded shadow bg-white">
+            <div class="container mx-auto grid md:grid-cols-1 xl:grid-cols-2">
+              <div
+                class="mx-2 block rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700">
+                <div class="relative overflow-hidden bg-cover bg-no-repeat">
+                  <img
+                    class="rounded-t-lg"
+                    src="/images/comedor 1.png"
+                    alt="" />
+                </div>
+                <div class="p-6">
+                  <p class="text-base text-neutral-600 dark:text-neutral-200">
+                    <h1 class="text-left font-bold text-2xl">Juego de Comedor Milan Marrón - Juego de Comedor de 06 sillas Milan Beige</h1>
+                    <p class="text-gray-600 font-normal text-xl my-3">Precio Regular 
+                      <span class="text-gray-500 ml-2 line-through font-bold">S/ 3,678.40</span>
+                    </p>
+                    <h1 class="text-left font-bold text-red-600 text-xl">Precio Online S/ 1,599.00</h1>
+                    <button
+                      type="button"
+                      class="my-3 float-right inline-block rounded-full bg-warning px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#e4a11b] transition duration-150 ease-in-out hover:bg-warning-600 hover:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.3),0_4px_18px_0_rgba(228,161,27,0.2)] focus:bg-warning-600 focus:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.3),0_4px_18px_0_rgba(228,161,27,0.2)] focus:outline-none focus:ring-0 active:bg-warning-700 active:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.3),0_4px_18px_0_rgba(228,161,27,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(228,161,27,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.2),0_4px_18px_0_rgba(228,161,27,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.2),0_4px_18px_0_rgba(228,161,27,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.2),0_4px_18px_0_rgba(228,161,27,0.1)]">
+                      Comprar
+                    </button>
+                  </p>
+                </div>
+              </div>
+
+
+                <div
+                  class="block rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700">
+                  <div class="relative overflow-hidden bg-cover bg-no-repeat">
+                    <img
+                      class="rounded-t-lg"
+                      src="/images/comedor 2.png"
+                      alt="" />
+                  </div>
+                  <div class="p-6">
+                    <p class="text-base text-neutral-600 dark:text-neutral-200">
+                      <h1 class="text-left font-bold text-2xl">Juego De Comedor Tokio 6 Sillas</h1>
+                      <p class="text-gray-600 font-normal text-xl my-3">Precio Regular 
+                        <span class="text-gray-500 ml-2 line-through font-bold">S/ 1,599.00</span>
+                      </p>
+                      <h1 class="text-left font-bold text-red-600 text-xl">Precio Online 1,199.00</h1>
+                      <button
+                        type="button"
+                        class="my-3 float-right inline-block rounded-full bg-warning px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#e4a11b] transition duration-150 ease-in-out hover:bg-warning-600 hover:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.3),0_4px_18px_0_rgba(228,161,27,0.2)] focus:bg-warning-600 focus:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.3),0_4px_18px_0_rgba(228,161,27,0.2)] focus:outline-none focus:ring-0 active:bg-warning-700 active:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.3),0_4px_18px_0_rgba(228,161,27,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(228,161,27,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.2),0_4px_18px_0_rgba(228,161,27,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.2),0_4px_18px_0_rgba(228,161,27,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.2),0_4px_18px_0_rgba(228,161,27,0.1)]">
+                        Comprar
+                      </button>
+                    </p>
+                  </div>
+                </div> 
+            </div>
+            <!--/Card-->
+            <h3 id="section2" class="my-5 font-sans font-bold break-normal text-gray-700 px-2 pb-8 text-xl">MESAS DE COMEDOR</h3>
+            <!--Card-->
+            <div class="p-8 mt-6 lg:mt-0 leading-normal rounded shadow bg-white">
+              <div class="container mx-auto grid md:grid-cols-1 xl:grid-cols-2">
+                <div
+                  class="mx-2 block rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700">
+                  <div class="relative overflow-hidden bg-cover bg-no-repeat">
+                    <img
+                      class="rounded-t-lg"
+                      src="/images/mesa comedor 1.png"
+                      alt="" />
+                  </div>
+                  <div class="p-6">
+                    <p class="text-base text-neutral-600 dark:text-neutral-200">
+                      <h1 class="text-left font-bold text-2xl">Mesa De Comedor Extendible Odense</h1>
+                      <p class="text-gray-600 font-normal text-xl my-3">Precio Regular 
+                        <span class="text-gray-500 ml-2 line-through font-bold">S/ 899.00</span>
+                      </p>
+                      <h1 class="text-left font-bold text-red-600 text-xl">Precio Online S/ 649.00</h1>
+                      <button
+                        type="button"
+                        class="my-3 float-right inline-block rounded-full bg-warning px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#e4a11b] transition duration-150 ease-in-out hover:bg-warning-600 hover:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.3),0_4px_18px_0_rgba(228,161,27,0.2)] focus:bg-warning-600 focus:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.3),0_4px_18px_0_rgba(228,161,27,0.2)] focus:outline-none focus:ring-0 active:bg-warning-700 active:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.3),0_4px_18px_0_rgba(228,161,27,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(228,161,27,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.2),0_4px_18px_0_rgba(228,161,27,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.2),0_4px_18px_0_rgba(228,161,27,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.2),0_4px_18px_0_rgba(228,161,27,0.1)]">
+                        Comprar
+                      </button>
+                    </p>
+                  </div>
+                </div>
+  
+  
+                  <div
+                    class="block rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700">
+                    <div class="relative overflow-hidden bg-cover bg-no-repeat">
+                      <img
+                        class="rounded-t-lg"
+                        src="/images/mesa comedor 2.png"
+                        alt="" />
+                    </div>
+                    <div class="p-6">
+                      <p class="text-base text-neutral-600 dark:text-neutral-200">
+                        <h1 class="text-left font-bold text-2xl">Mesa De Comedor Aria 6 Sillas</h1>
+                        <p class="text-gray-600 font-normal text-xl my-3">Precio Regular 
+                          <span class="text-gray-500 ml-2 line-through font-bold">S/ 1,999.00</span>
+                        </p>
+                        <h1 class="text-left font-bold text-red-600 text-xl">Precio Online S/ 1,199.00</h1>
+                        <button
+                          type="button"
+                          class="my-3 float-right inline-block rounded-full bg-warning px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#e4a11b] transition duration-150 ease-in-out hover:bg-warning-600 hover:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.3),0_4px_18px_0_rgba(228,161,27,0.2)] focus:bg-warning-600 focus:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.3),0_4px_18px_0_rgba(228,161,27,0.2)] focus:outline-none focus:ring-0 active:bg-warning-700 active:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.3),0_4px_18px_0_rgba(228,161,27,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(228,161,27,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.2),0_4px_18px_0_rgba(228,161,27,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.2),0_4px_18px_0_rgba(228,161,27,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.2),0_4px_18px_0_rgba(228,161,27,0.1)]">
+                          Comprar
+                        </button>
+                      </p>
+                    </div>
+                  </div> 
+              </div>
+            <!--/Card-->
+
+
+
+
+            <!--divider-->
+            <hr class="bg-gray-300 my-12">
+
+            <!--Title-->
+            <h2 id="section3" class="font-sans font-bold break-normal text-gray-700 px-2 pb-8 text-xl">MUEBLES PARA DORMITORIO</h2>
+            <h3 id="section3" class="font-sans font-bold break-normal text-gray-700 px-2 pb-8 text-xl">JUEGO DE DORMITORIO</h3>
+
+            <!--Card-->
+            <div class="p-8 mt-6 lg:mt-0 leading-normal rounded shadow bg-white">
+
+            <div class="container mx-auto grid md:grid-cols-1 xl:grid-cols-2">
+              <div
+                class="mx-2 block rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700">
+                <div class="relative overflow-hidden bg-cover bg-no-repeat">
+                  <img
+                    class="rounded-t-lg"
+                    src="/images/sofá 1.png"
+                    alt="" />
+                </div>
+                <div class="p-6">
+                  <p class="text-base text-neutral-600 dark:text-neutral-200">
+                    <h1 class="text-left font-bold text-2xl">Sofá Noelia 3 Cuerpos Acero</h1>
+                    <p class="text-gray-600 font-normal text-xl my-3">Precio Regular 
+                      <span class="text-gray-500 ml-2 line-through font-bold">S/1,179.00</span>
+                    </p>
+                    <h1 class="text-left font-bold text-red-600 text-xl">Precio Online S/ 1,099.00</h1>
+                    <button
+                      type="button"
+                      class="my-3 float-right inline-block rounded-full bg-warning px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#e4a11b] transition duration-150 ease-in-out hover:bg-warning-600 hover:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.3),0_4px_18px_0_rgba(228,161,27,0.2)] focus:bg-warning-600 focus:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.3),0_4px_18px_0_rgba(228,161,27,0.2)] focus:outline-none focus:ring-0 active:bg-warning-700 active:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.3),0_4px_18px_0_rgba(228,161,27,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(228,161,27,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.2),0_4px_18px_0_rgba(228,161,27,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.2),0_4px_18px_0_rgba(228,161,27,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.2),0_4px_18px_0_rgba(228,161,27,0.1)]">
+                      Comprar
+                    </button>
+                  </p>
+                </div>
+              </div>
+
+
+                <div
+                  class="block rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700">
+                  <div class="relative overflow-hidden bg-cover bg-no-repeat">
+                    <img
+                      class="rounded-t-lg"
+                      src="/images/sofá 2.png"
+                      alt="" />
+                  </div>
+                  <div class="p-6">
+                    <p class="text-base text-neutral-600 dark:text-neutral-200">
+                      <h1 class="text-left font-bold text-2xl">Sofa Living Furniture lake negro 3 cuerpos</h1>
+                      <p class="text-gray-600 font-normal text-xl my-3">Precio Regular 
+                        <span class="text-gray-500 ml-2 line-through font-bold">S/ 2,651.00</span>
+                      </p>
+                      <h1 class="text-left font-bold text-red-600 text-xl">Precio Online S/ 2,039.00</h1>
+                      <button
+                        type="button"
+                        class="my-3 float-right inline-block rounded-full bg-warning px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#e4a11b] transition duration-150 ease-in-out hover:bg-warning-600 hover:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.3),0_4px_18px_0_rgba(228,161,27,0.2)] focus:bg-warning-600 focus:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.3),0_4px_18px_0_rgba(228,161,27,0.2)] focus:outline-none focus:ring-0 active:bg-warning-700 active:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.3),0_4px_18px_0_rgba(228,161,27,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(228,161,27,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.2),0_4px_18px_0_rgba(228,161,27,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.2),0_4px_18px_0_rgba(228,161,27,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.2),0_4px_18px_0_rgba(228,161,27,0.1)]">
+                        Comprar
+                      </button>
+                    </p>
+                  </div>
+                </div> 
+            </div>
+            <!--/Card-->
+            <h3 id="section3" class="my-5 font-sans font-bold break-normal text-gray-700 px-2 pb-8 text-xl">VELADORES</h3>
+            <!--Card-->
+            <div class="p-8 mt-6 lg:mt-0 leading-normal rounded shadow bg-white">
+
+              <div class="container mx-auto grid md:grid-cols-1 xl:grid-cols-2">
+                <div
+                  class="mx-2 block rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700">
+                  <div class="relative overflow-hidden bg-cover bg-no-repeat">
+                    <img
+                      class="rounded-t-lg"
+                      src="/images/sillon 1.png"
+                      alt="" />
+                  </div>
+                  <div class="p-6">
+                    <p class="text-base text-neutral-600 dark:text-neutral-200">
+                      <h1 class="text-left font-bold text-2xl">Sillon Praga mas Bamqueta Baul Mallma Deco plomo</h1>
+                      <p class="text-gray-600 font-normal text-xl my-3">Precio Regular 
+                        <span class="text-gray-500 ml-2 line-through font-bold">S/ 1,199.00</span>
+                      </p>
+                      <h1 class="text-left font-bold text-red-600 text-xl">Precio Online S/ 899.00</h1>
+                      <button
+                        type="button"
+                        class="my-3 float-right inline-block rounded-full bg-warning px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#e4a11b] transition duration-150 ease-in-out hover:bg-warning-600 hover:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.3),0_4px_18px_0_rgba(228,161,27,0.2)] focus:bg-warning-600 focus:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.3),0_4px_18px_0_rgba(228,161,27,0.2)] focus:outline-none focus:ring-0 active:bg-warning-700 active:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.3),0_4px_18px_0_rgba(228,161,27,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(228,161,27,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.2),0_4px_18px_0_rgba(228,161,27,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.2),0_4px_18px_0_rgba(228,161,27,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.2),0_4px_18px_0_rgba(228,161,27,0.1)]">
+                        Comprar
+                      </button>
+                    </p>
+                  </div>
+                </div>
+  
+  
+                  <div
+                    class="block rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700">
+                    <div class="relative overflow-hidden bg-cover bg-no-repeat">
+                      <img
+                        class="rounded-t-lg"
+                        src="/images/sillon 2.png"
+                        alt="" />
+                    </div>
+                    <div class="p-6">
+                      <p class="text-base text-neutral-600 dark:text-neutral-200">
+                        <h1 class="text-left font-bold text-2xl">Sillon Polly Mavisac Color Beige - Ultra Cuero</h1>
+                        <p class="text-gray-600 font-normal text-xl my-3">Precio Regular 
+                          <span class="text-gray-500 ml-2 line-through font-bold">S/ 1,050.00</span>
+                        </p>
+                        <h1 class="text-left font-bold text-red-600 text-xl">Precio Online S/ 840.00</h1>
+                        <button
+                          type="button"
+                          class="my-3 float-right inline-block rounded-full bg-warning px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#e4a11b] transition duration-150 ease-in-out hover:bg-warning-600 hover:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.3),0_4px_18px_0_rgba(228,161,27,0.2)] focus:bg-warning-600 focus:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.3),0_4px_18px_0_rgba(228,161,27,0.2)] focus:outline-none focus:ring-0 active:bg-warning-700 active:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.3),0_4px_18px_0_rgba(228,161,27,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(228,161,27,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.2),0_4px_18px_0_rgba(228,161,27,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.2),0_4px_18px_0_rgba(228,161,27,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.2),0_4px_18px_0_rgba(228,161,27,0.1)]">
+                          Comprar
+                        </button>
+                      </p>
+                    </div>
+                  </div> 
+              </div>
+            <!--/Card-->
+
+
+
+
+            <!--divider-->
+            <hr class="bg-gray-300 my-12">
+
+            <!--Title-->
+            <h2 id="section4" class="font-sans font-bold break-normal text-gray-700 px-2 pb-8 text-xl">MUEBLES DE OFICINA</h2>
+            <h3 id="section4" class="font-sans font-bold break-normal text-gray-700 px-2 pb-8 text-xl">LIBREROS</h3>
+
+            <!--Card-->
+            <div class="p-8 mt-6 lg:mt-0 leading-normal rounded shadow bg-white">
+            <div class="container mx-auto grid md:grid-cols-1 xl:grid-cols-2">
+              <div
+                class="mx-2 block rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700">
+                <div class="relative overflow-hidden bg-cover bg-no-repeat">
+                  <img
+                    class="rounded-t-lg"
+                    src="/images/comedor 1.png"
+                    alt="" />
+                </div>
+                <div class="p-6">
+                  <p class="text-base text-neutral-600 dark:text-neutral-200">
+                    <h1 class="text-left font-bold text-2xl">Juego de Comedor Milan Marrón - Juego de Comedor de 06 sillas Milan Beige</h1>
+                    <p class="text-gray-600 font-normal text-xl my-3">Precio Regular 
+                      <span class="text-gray-500 ml-2 line-through font-bold">S/ 3,678.40</span>
+                    </p>
+                    <h1 class="text-left font-bold text-red-600 text-xl">Precio Online S/ 1,599.00</h1>
+                    <button
+                      type="button"
+                      class="my-3 float-right inline-block rounded-full bg-warning px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#e4a11b] transition duration-150 ease-in-out hover:bg-warning-600 hover:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.3),0_4px_18px_0_rgba(228,161,27,0.2)] focus:bg-warning-600 focus:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.3),0_4px_18px_0_rgba(228,161,27,0.2)] focus:outline-none focus:ring-0 active:bg-warning-700 active:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.3),0_4px_18px_0_rgba(228,161,27,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(228,161,27,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.2),0_4px_18px_0_rgba(228,161,27,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.2),0_4px_18px_0_rgba(228,161,27,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.2),0_4px_18px_0_rgba(228,161,27,0.1)]">
+                      Comprar
+                    </button>
+                  </p>
+                </div>
+              </div>
+
+
+                <div
+                  class="block rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700">
+                  <div class="relative overflow-hidden bg-cover bg-no-repeat">
+                    <img
+                      class="rounded-t-lg"
+                      src="/images/comedor 2.png"
+                      alt="" />
+                  </div>
+                  <div class="p-6">
+                    <p class="text-base text-neutral-600 dark:text-neutral-200">
+                      <h1 class="text-left font-bold text-2xl">Juego De Comedor Tokio 6 Sillas</h1>
+                      <p class="text-gray-600 font-normal text-xl my-3">Precio Regular 
+                        <span class="text-gray-500 ml-2 line-through font-bold">S/ 1,599.00</span>
+                      </p>
+                      <h1 class="text-left font-bold text-red-600 text-xl">Precio Online 1,199.00</h1>
+                      <button
+                        type="button"
+                        class="my-3 float-right inline-block rounded-full bg-warning px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#e4a11b] transition duration-150 ease-in-out hover:bg-warning-600 hover:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.3),0_4px_18px_0_rgba(228,161,27,0.2)] focus:bg-warning-600 focus:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.3),0_4px_18px_0_rgba(228,161,27,0.2)] focus:outline-none focus:ring-0 active:bg-warning-700 active:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.3),0_4px_18px_0_rgba(228,161,27,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(228,161,27,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.2),0_4px_18px_0_rgba(228,161,27,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.2),0_4px_18px_0_rgba(228,161,27,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.2),0_4px_18px_0_rgba(228,161,27,0.1)]">
+                        Comprar
+                      </button>
+                    </p>
+                  </div>
+                </div> 
+            </div>
+            <!--/Card-->
+            <h3 id="section4" class="my-5 font-sans font-bold break-normal text-gray-700 px-2 pb-8 text-xl">ESTANTES</h3>
+            <!--Card-->
+            <div class="p-8 mt-6 lg:mt-0 leading-normal rounded shadow bg-white">
+              <div class="container mx-auto grid md:grid-cols-1 xl:grid-cols-2">
+                <div
+                  class="mx-2 block rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700">
+                  <div class="relative overflow-hidden bg-cover bg-no-repeat">
+                    <img
+                      class="rounded-t-lg"
+                      src="/images/mesa comedor 1.png"
+                      alt="" />
+                  </div>
+                  <div class="p-6">
+                    <p class="text-base text-neutral-600 dark:text-neutral-200">
+                      <h1 class="text-left font-bold text-2xl">Mesa De Comedor Extendible Odense</h1>
+                      <p class="text-gray-600 font-normal text-xl my-3">Precio Regular 
+                        <span class="text-gray-500 ml-2 line-through font-bold">S/ 899.00</span>
+                      </p>
+                      <h1 class="text-left font-bold text-red-600 text-xl">Precio Online S/ 649.00</h1>
+                      <button
+                        type="button"
+                        class="my-3 float-right inline-block rounded-full bg-warning px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#e4a11b] transition duration-150 ease-in-out hover:bg-warning-600 hover:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.3),0_4px_18px_0_rgba(228,161,27,0.2)] focus:bg-warning-600 focus:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.3),0_4px_18px_0_rgba(228,161,27,0.2)] focus:outline-none focus:ring-0 active:bg-warning-700 active:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.3),0_4px_18px_0_rgba(228,161,27,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(228,161,27,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.2),0_4px_18px_0_rgba(228,161,27,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.2),0_4px_18px_0_rgba(228,161,27,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.2),0_4px_18px_0_rgba(228,161,27,0.1)]">
+                        Comprar
+                      </button>
+                    </p>
+                  </div>
+                </div>
+  
+  
+                  <div
+                    class="block rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700">
+                    <div class="relative overflow-hidden bg-cover bg-no-repeat">
+                      <img
+                        class="rounded-t-lg"
+                        src="/images/mesa comedor 2.png"
+                        alt="" />
+                    </div>
+                    <div class="p-6">
+                      <p class="text-base text-neutral-600 dark:text-neutral-200">
+                        <h1 class="text-left font-bold text-2xl">Mesa De Comedor Aria 6 Sillas</h1>
+                        <p class="text-gray-600 font-normal text-xl my-3">Precio Regular 
+                          <span class="text-gray-500 ml-2 line-through font-bold">S/ 1,999.00</span>
+                        </p>
+                        <h1 class="text-left font-bold text-red-600 text-xl">Precio Online S/ 1,199.00</h1>
+                        <button
+                          type="button"
+                          class="my-3 float-right inline-block rounded-full bg-warning px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#e4a11b] transition duration-150 ease-in-out hover:bg-warning-600 hover:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.3),0_4px_18px_0_rgba(228,161,27,0.2)] focus:bg-warning-600 focus:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.3),0_4px_18px_0_rgba(228,161,27,0.2)] focus:outline-none focus:ring-0 active:bg-warning-700 active:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.3),0_4px_18px_0_rgba(228,161,27,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(228,161,27,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.2),0_4px_18px_0_rgba(228,161,27,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.2),0_4px_18px_0_rgba(228,161,27,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.2),0_4px_18px_0_rgba(228,161,27,0.1)]">
+                          Comprar
+                        </button>
+                      </p>
+                    </div>
+                  </div> 
+              </div>
+            <!--/Card-->
+
+
+
+
+        </section>
+        <!--/Section container-->
+
+        <!--Back link -->
+        <div class="w-full lg:w-4/5 lg:ml-auto text-base md:text-sm text-gray-600 px-4 py-24 mb-12">
+          <span class="text-base text-yellow-600 font-bold">&lt;</span> <a href="#" class="text-base md:text-sm text-yellow-600 font-bold no-underline hover:underline">Back link</a>
+         </div>
+
+      </div>
+      <!--/container-->
+
+<!-- Toggle dropdown list -->
+<script>
+/*https://gist.github.com/slavapas/593e8e50cf4cc16ac972afcbad4f70c8*/
+
+var userMenuDiv = document.getElementById("userMenu");
+var userMenu = document.getElementById("userButton");
+
+ var helpMenuDiv = document.getElementById("menu-content");
+ var helpMenu = document.getElementById("menu-toggle");
+
+document.onclick = check;
+
+function check(e){
+  var target = (e && e.target) || (event && event.srcElement);
+
+  //User Menu
+  if (!checkParent(target, userMenuDiv)) {
+	// click NOT on the menu
+	if (checkParent(target, userMenu)) {
+	  // click on the link
+	  if (userMenuDiv.classList.contains("invisible")) {
+		userMenuDiv.classList.remove("invisible");
+	  } else {userMenuDiv.classList.add("invisible");}
+	} else {
+	  // click both outside link and outside menu, hide menu
+	  userMenuDiv.classList.add("invisible");
+	}
+  }
+
+   //Help Menu
+   if (!checkParent(target, helpMenuDiv)) {
+	// click NOT on the menu
+	if (checkParent(target, helpMenu)) {
+	  // click on the link
+	  if (helpMenuDiv.classList.contains("hidden")) {
+		helpMenuDiv.classList.remove("hidden");
+	  } else {helpMenuDiv.classList.add("hidden");}
+	} else {
+	  // click both outside link and outside menu, hide menu
+	  helpMenuDiv.classList.add("hidden");
+	}
+   }
+
+}
+
+function checkParent(t, elm) {
+  while(t.parentNode) {
+	if( t == elm ) {return true;}
+	t = t.parentNode;
+  }
+  return false;
+}
+
+</script>
+
+<!-- jQuery -->
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+<!-- Scroll Spy -->
+<script>
+/* http://jsfiddle.net/LwLBx/ */
+
+// Cache selectors
+var lastId,
+    topMenu = $("#menu-content"),
+    topMenuHeight = topMenu.outerHeight()+175,
+    // All list items
+    menuItems = topMenu.find("a"),
+    // Anchors corresponding to menu items
+    scrollItems = menuItems.map(function(){
+      var item = $($(this).attr("href"));
+      if (item.length) { return item; }
+    });
+
+// Bind click handler to menu items
+// so we can get a fancy scroll animation
+menuItems.click(function(e){
+  var href = $(this).attr("href"),
+      offsetTop = href === "#" ? 0 : $(href).offset().top-topMenuHeight+1;
+  $('html, body').stop().animate({ 
+      scrollTop: offsetTop
+  }, 300);
+  if (!helpMenuDiv.classList.contains("hidden")) {
+		helpMenuDiv.classList.add("hidden");
+	  }
+  e.preventDefault();
+});
+
+// Bind to scroll
+$(window).scroll(function(){
+   // Get container scroll position
+   var fromTop = $(this).scrollTop()+topMenuHeight;
+
+   // Get id of current scroll item
+   var cur = scrollItems.map(function(){
+     if ($(this).offset().top < fromTop)
+       return this;
+   });
+   // Get the id of the current element
+   cur = cur[cur.length-1];
+   var id = cur && cur.length ? cur[0].id : "";
+
+   if (lastId !== id) {
+       lastId = id;
+       // Set/remove active class
+       menuItems
+         .parent().removeClass("font-bold border-yellow-600")
+         .end().filter("[href='#"+id+"']").parent().addClass("font-bold border-yellow-600");
+   }                   
+});
+
+</script>
+
+
+
+</body></html>
+
+      <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/tw-elements.umd.min.js"></script>
+  </body>
+</html>

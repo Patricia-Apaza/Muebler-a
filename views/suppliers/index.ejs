@@ -1,0 +1,84 @@
+<%- include('../partials/sidebar.ejs'); %>
+<link rel="preconnect" href="https://rsms.me/">
+<link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+<style>
+    :root { font-family: 'Inter', sans-serif; }
+@supports (font-variation-settings: normal) {
+  :root { font-family: 'Inter var', sans-serif; }
+}
+</style>
+
+        <div id="content" class="bg-white/10 col-span-9 rounded-lg p-6">
+            <div id="24h">
+                <h1 class="font-bold py-4 uppercase">Lista de productos</h1>
+            </div>
+            <div class="space-x-8 mb-2">
+              <a href="/suppliers/add" class="bg-white text-gray-900 px-4 py-2 rounded-md  font-semibold tracking-wide cursor-pointer" >
+                <i class="fa-solid fa-plus"></i> Nuevo
+              </a>
+          </div>
+          <% if (messages.success) { %>                        
+            <div class="bg-teal-100 border-t-4 border-teal-500 rounded-b text-teal-900 px-4 py-3 shadow-md" role="alert">
+                <div class="flex">
+                    <div class="py-1">
+                        <svg class="fill-current h-6 w-6 text-teal-500 mr-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                            <path d="M2.93 17.07A10 10 0 1 1 17.07 2.93 10 10 0 0 1 2.93 17.07zm12.73-1.41A8 8 0 1 0 4.34 4.34a8 8 0 0 0 11.32 11.32zM9 11V9h2v6H9v-4zm0-6h2v2H9V5z"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <p class="text-sm"><%- messages.success %></p>
+                    </div>
+                </div>
+            </div>
+        <% } %>
+        
+        <% if (messages.error) { %>
+            <div role="alert">
+                <div class="bg-red-500 text-white font-bold rounded-t px-4 py-2">
+                    Danger
+                </div>
+                <div class="border border-t-0 border-red-400 rounded-b bg-red-100 px-4 py-3 text-red-700">
+                    <p class="font-bold"><%- messages.error %></p>
+                </div>
+            </div>                        
+        <% } %>
+<!--Tabla lista de items   -->
+<div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+  <table class="w-full divide-y divide-gray-200 table-auto">
+      <thead class="bg-white text-gray-900">
+          <tr class="text-left text-xs font-bold uppercase">
+              <td scope="col" class="bg-white text-gray-900px-6 py-3">ID</td>
+              <td scope="col" class="px-6 py-3">Nombre categoría</td>
+              <td scope="col" class="px-6 py-3 text-center">Opciones</td>
+          </tr>
+      </thead>
+      <tbody class="divide-y divide-gray-200 dark:text-gray-400">
+          <% for(var i = 0; i< data.length; i++) { %>
+          <tr class="text-sm font-medium text-gray-900">
+              <td class="px-6 py-4">
+                  <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-white text-gray-900">
+                      <%= data[i].id %>
+                  </span>
+              </td>
+              <td class="px-6 py-4 dark:text-gray-400"><%= data[i].nombre%></td>
+              <td class="px-6 py-4 text-right">
+                  <a href="../suppliers/edit/<%=data[i].id%>" class="mr-1 bg-green-600 text-white rounded px-2 py-2 hover:bg-green-400 text-xs">
+                      <i class="fa-solid fa-pen-to-square"></i> Editar
+                  </a>
+                  <a href="../suppliers/delete/<%=data[i].id%>" onclick="return confirm('Are You sure?')" class="bg-red-600 text-white rounded px-2 py-2 hover:bg-red-400 text-xs">
+                      <i class="fa-solid fa-trash-can"></i> Eliminar
+                  </a>
+              </td>
+          </tr>
+          <% } %>
+      </tbody>
+  </table>
+  <!-- if result is empty -->
+  <% if(!data.length) { %>
+      <p class="text-center">No se encontraron categorias!</p>
+  <% } %>
+</div>
+      
+  <%- include('../partials/footer.ejs'); %>
+
+
