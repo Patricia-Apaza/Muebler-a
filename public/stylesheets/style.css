@@ -1,0 +1,225 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+@media screen and (max-width: 768px) {
+  /* Estilos para pantallas pequeñas */
+}
+
+/* Estilos generales */
+body {
+  font-size: 14px; /* Reducir el tamaño de la fuente base */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.macbook-pro {
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+
+.macbook-pro .overlap-group-wrapper {
+  background-color: #ffffff;
+  width: 1728px;
+  height: 1117px;
+}
+
+.macbook-pro .overlap-group {
+  position: relative;
+  height: 1018px;
+  top: 99px;
+}
+
+.macbook-pro .buttom-background {
+  position: relative;
+  width: 1519px;
+  height: 588px;
+  top: 430px;
+  left: 0;
+  background-color: #1c3144;
+}
+
+.macbook-pro .section {
+  display: flex;
+  flex-direction: column;
+  width: 1203px;
+  height: 860px;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  position: absolute;
+  top: 0;
+  left: 262px;
+}
+
+.macbook-pro .title {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.macbook-pro .text-wrapper {
+  position: relative;
+  width: fit-content;
+  margin-top: -1px;
+  font-family: "Montserrat-Medium", Helvetica;
+  font-weight: 500;
+  color: #141414;
+  font-size: 32px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.macbook-pro .line {
+  position: relative;
+  align-self: stretch;
+  width: 100%;
+  height: 2px;
+  margin-bottom: -1px;
+  margin-left: -1px;
+  margin-right: -1px;
+}
+
+.macbook-pro .frame {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 87px;
+  padding: 40px 56px;
+  position: relative;
+  flex: 0 0 auto;
+  background-color: #ffffff;
+  border-radius: 4px;
+  box-shadow: 0px 0px 40px #0000000d;
+}
+
+.macbook-pro .form {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 40px;
+  position: relative;
+  flex: 0 0 auto;
+  border-radius: 4px;
+}
+
+.macbook-pro .div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  position: relative;
+  align-self: stretch;
+  width: 100%;
+  flex: 0 0 auto;
+}
+
+.macbook-pro .drop-down-location {
+  display: flex;
+  width: 100%; /* Ajustar al 100% del ancho del contenedor padre */
+  max-width: 405px; /* Limitar el ancho máximo del formulario */
+  align-items: center;
+  gap: 10px;
+  padding: 8px 16px;
+  position: relative;
+  background-color: #fafafa;
+  border-radius: 4px;
+  border: 1px solid;
+  border-color: #c4c4c4;
+}
+
+.macbook-pro .text-wrapper-2 {
+  position: relative;
+  width: fit-content;
+  font-family: "Poppins-Regular", Helvetica;
+  font-weight: 400;
+  color: #575757;
+  font-size: 16px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.macbook-pro .div-wrapper {
+  display: flex;
+  width: 256px;
+  height: 56px;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 24px;
+  position: relative;
+  background-color: #fe8400;
+  border-radius: 4px;
+}
+
+.macbook-pro .text-wrapper-3 {
+  position: relative;
+  width: fit-content;
+  font-family: "Poppins-Regular", Helvetica;
+  font-weight: 400;
+  color: #141414;
+  font-size: 14px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.macbook-pro .frame-2 {
+  position: relative;
+  width: 172px;
+  height: 24px;
+}
+
+.macbook-pro .text-wrapper-4 {
+  position: absolute;
+  height: 24px;
+  top: -1px;
+  left: 0;
+  font-family: "Poppins-Regular", Helvetica;
+  font-weight: 400;
+  color: #bd9737;
+  font-size: 16px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.macbook-pro .p {
+  position: relative;
+  width: 364px;
+  font-family: "Poppins-Regular", Helvetica;
+  font-weight: 400;
+  color: transparent;
+  font-size: 16px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.macbook-pro .span {
+  color: #575757;
+}
+
+.macbook-pro .text-wrapper-5 {
+  color: #bd9737;
+}
+
+.macbook-pro .rectangle {
+  position: relative;
+  width: 451px;
+  height: 462px;
+  object-fit: cover;
+}
+
